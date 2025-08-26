@@ -50,8 +50,6 @@ const tempWatchedData = [
   },
 ];
 
-const average = (arr) =>
-  arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
 export default function App() {
   const [query, setQuery] = useState("");
@@ -60,24 +58,13 @@ export default function App() {
   const [isOpen1, setIsOpen1] = useState(true);
   const [isOpen2, setIsOpen2] = useState(true);
 
-  const avgImdbRating = average(watched.map((movie) => movie.imdbRating));
-  const avgUserRating = average(watched.map((movie) => movie.userRating));
-  const avgRuntime = average(watched.map((movie) => movie.runtime));
-
   return (
     <>
       <Nav query={query} setQuery={setQuery} movies={movies} />
 
       <main className="main">
         <Box1 setIsOpen1={setIsOpen1} isOpen1={isOpen1} movies={movies} />
-        <Box2
-          setIsOpen2={setIsOpen2}
-          isOpen2={isOpen2}
-          watched={watched}
-          avgImdbRating={avgImdbRating}
-          avgUserRating={avgUserRating}
-          avgRuntime={avgRuntime}
-        />
+        <Box2 setIsOpen2={setIsOpen2} isOpen2={isOpen2} watched={watched} />
       </main>
     </>
   );

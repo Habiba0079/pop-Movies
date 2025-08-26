@@ -1,11 +1,4 @@
-export default function Box2({
-  setIsOpen2,
-  isOpen2,
-  watched,
-  avgImdbRating,
-  avgUserRating,
-  avgRuntime,
-}) {
+export default function Box2({ setIsOpen2, isOpen2, watched }) {
   return (
     <div className="box">
       <button
@@ -16,7 +9,7 @@ export default function Box2({
       </button>
       {isOpen2 && (
         <>
-          <Summary watched={watched} avgImdbRating={avgImdbRating} avgUserRating={avgUserRating} avgRuntime={avgRuntime} />
+          <Summary watched={watched} />
           <ul className="list">
             {watched.map((movie) => (
               <ListItem key={movie.imdbID} movie={movie} />
@@ -28,31 +21,37 @@ export default function Box2({
   );
 }
 
-function Summary({watched, avgImdbRating, avgUserRating, avgRuntime}) {
-  return(
-    <div className="summary">
-            <h2>Movies you watched</h2>
-            <div>
-              <p>
-                <span>#️⃣</span>
-                <span>{watched.length} movies</span>
-              </p>
-              <p>
-                <span>⭐️</span>
-                <span>{avgImdbRating}</span>
-              </p>
-              <p>
-                <span>🌟</span>
-                <span>{avgUserRating}</span>
-              </p>
-              <p>
-                <span>⏳</span>
-                <span>{avgRuntime} min</span>
-              </p>
-            </div>
-          </div>
+function Summary({ watched }) {
+  const average = (arr) =>
+    arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
-  )
+  const avgImdbRating = average(watched.map((movie) => movie.imdbRating));
+  const avgUserRating = average(watched.map((movie) => movie.userRating));
+  const avgRuntime = average(watched.map((movie) => movie.runtime));
+
+  return (
+    <div className="summary">
+      <h2>Movies you watched</h2>
+      <div>
+        <p>
+          <span>#️⃣</span>
+          <span>{watched.length} movies</span>
+        </p>
+        <p>
+          <span>⭐️</span>
+          <span>{avgImdbRating}</span>
+        </p>
+        <p>
+          <span>🌟</span>
+          <span>{avgUserRating}</span>
+        </p>
+        <p>
+          <span>⏳</span>
+          <span>{avgRuntime} min</span>
+        </p>
+      </div>
+    </div>
+  );
 }
 
 function ListItem({ movie }) {

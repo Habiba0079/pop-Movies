@@ -1,17 +1,22 @@
 export default function Nav({ query, setQuery, movies }) {
   return (
     <nav className="nav-bar">
-      <div className="logo">
-        <span role="img">🍿</span>
-        <h1>usePopcorn</h1>
-      </div>
+      <Logo />
       <Search setQuery={setQuery} query={query} />
-      <p className="num-results">
-        Found <strong>{movies.length}</strong> results
-      </p>
+      <NumOfResults movies={movies} />
     </nav>
   );
 }
+
+function Logo() {
+  return (
+    <div className="logo">
+      <span role="img">🍿</span>
+      <h1>usePopcorn</h1>
+    </div>
+  );
+}
+
 function Search({ setQuery, query }) {
   return (
     <input
@@ -21,5 +26,13 @@ function Search({ setQuery, query }) {
       value={query}
       onChange={(e) => setQuery(e.target.value)}
     />
+  );
+}
+
+function NumOfResults({ movies }) {
+  return (
+    <p className="num-results">
+      Found <strong>{movies.length}</strong> results
+    </p>
   );
 }

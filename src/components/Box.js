@@ -1,12 +1,7 @@
 export default function Box1({ setIsOpen1, isOpen1, movies }) {
   return (
     <div className="box">
-      <button
-        className="btn-toggle"
-        onClick={() => setIsOpen1((open) => !open)}
-      >
-        {isOpen1 ? "–" : "+"}
-      </button>
+      <ToggleButton isOpen={isOpen1} setIsOpen={setIsOpen1} />
       {isOpen1 && (
         <ul className="list">
           {movies?.map((movie) => (
@@ -15,6 +10,14 @@ export default function Box1({ setIsOpen1, isOpen1, movies }) {
         </ul>
       )}
     </div>
+  );
+}
+
+function ToggleButton({ isOpen, setIsOpen }) {
+  return (
+    <button className="btn-toggle" onClick={() => setIsOpen((Open) => !Open)}>
+      {isOpen ? "–" : "+"}
+    </button>
   );
 }
 
@@ -30,5 +33,5 @@ function ListItem({ movie }) {
         </p>
       </div>
     </li>
-   );
+  );
 }

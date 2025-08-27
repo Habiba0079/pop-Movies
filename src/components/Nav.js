@@ -1,14 +1,10 @@
-export default function Nav({ query, setQuery, movies }) {
-  return (
-    <nav className="nav-bar">
-      <Logo />
-      <Search setQuery={setQuery} query={query} />
-      <NumOfResults movies={movies} />
-    </nav>
-  );
+import { useState } from "react";
+
+export function Nav({ children }) {
+  return <nav className="nav-bar">{children}</nav>;
 }
 
-function Logo() {
+export function Logo() {
   return (
     <div className="logo">
       <span role="img">🍿</span>
@@ -17,7 +13,8 @@ function Logo() {
   );
 }
 
-function Search({ setQuery, query }) {
+export function Search() {
+  const [query, setQuery] = useState("");
   return (
     <input
       className="search"
@@ -29,7 +26,7 @@ function Search({ setQuery, query }) {
   );
 }
 
-function NumOfResults({ movies }) {
+export function NumOfResults({ movies }) {
   return (
     <p className="num-results">
       Found <strong>{movies.length}</strong> results

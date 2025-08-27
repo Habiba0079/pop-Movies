@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Nav from "./components/Nav";
-import Box1 from "./components/Box";
-import Box2 from "./components/Box2";
+import { Nav, Logo, Search, NumOfResults } from "./components/Nav";
+import MoviesBox from "./components/moviesBox";
+import {MoviesWatched, Summary} from "./components/moviesWatched";
 
 const tempMovieData = [
   {
@@ -50,22 +50,39 @@ const tempWatchedData = [
   },
 ];
 
-
 export default function App() {
-  const [query, setQuery] = useState("");
   const [movies, setMovies] = useState(tempMovieData);
   const [watched, setWatched] = useState(tempWatchedData);
-  const [isOpen1, setIsOpen1] = useState(true);
-  const [isOpen2, setIsOpen2] = useState(true);
 
   return (
     <>
-      <Nav query={query} setQuery={setQuery} movies={movies} />
+      <Nav>
+        <Logo />
+        <Search />
+        <NumOfResults movies={movies} />
+      </Nav>
 
       <main className="main">
-        <Box1 setIsOpen1={setIsOpen1} isOpen1={isOpen1} movies={movies} />
-        <Box2 setIsOpen2={setIsOpen2} isOpen2={isOpen2} watched={watched} />
+        <Box>
+          <MoviesBox movies={movies} />
+        </Box>
+        <Box>
+          <Summary watched={watched}/>
+          <MoviesWatched watched={watched} />
+        </Box>
       </main>
     </>
+  );
+}
+
+function Box({ children }) {
+  const [isOpen, setIsOpen] = useState(true);
+  return (
+    <div className="box">
+      <button className="btn-toggle" onClick={() => setIsOpen((Open) => !Open)}>
+        {isOpen ? "–" : "+"}
+      </button>
+      {isOpen && children}
+    </div>
   );
 }

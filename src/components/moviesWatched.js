@@ -1,6 +1,4 @@
 export function MoviesWatched({ watched, onDeleteMovie }) {
-
-
   return watched.length === 0 ? (
     <div className="box">
       <p style={{ textAlign: "center", fontStyle: "italic" }}>
@@ -12,7 +10,11 @@ export function MoviesWatched({ watched, onDeleteMovie }) {
       <>
         <ul className="list">
           {watched.map((movie) => (
-            <ListItem key={movie.imdbID} movie={movie} onDelete={onDeleteMovie} />
+            <ListItem
+              key={movie.imdbID}
+              movie={movie}
+              onDelete={onDeleteMovie}
+            />
           ))}
         </ul>
       </>
@@ -28,18 +30,18 @@ function ListItem({ movie, onDelete }) {
       <div>
         <p>
           <span>⭐️</span>
-          <span>{movie.imdbRating}</span>
+          <span>{movie.imdbRating.toFixed(2)}</span>
         </p>
         <p>
           <span>🌟</span>
-          <span>{movie.userRating}</span>
+          <span>{movie.userRating.toFixed(2)}</span>
         </p>
         <p>
           <span>⏳</span>
           <span>{movie.runtime} min</span>
         </p>
         <button className="btn-delete" onClick={() => onDelete(movie.imdbID)}>
-          <span>x</span>
+          X
         </button>
       </div>
     </li>

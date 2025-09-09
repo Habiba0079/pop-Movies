@@ -1,10 +1,18 @@
-export function MoviesWatched({ watched }) {
-  return (
+export function MoviesWatched({ watched, onDeleteMovie }) {
+
+
+  return watched.length === 0 ? (
+    <div className="box">
+      <p style={{ textAlign: "center", fontStyle: "italic" }}>
+        No movies watched yet
+      </p>
+    </div>
+  ) : (
     <div className="box">
       <>
         <ul className="list">
           {watched.map((movie) => (
-            <ListItem key={movie.imdbID} movie={movie} />
+            <ListItem key={movie.imdbID} movie={movie} onDelete={onDeleteMovie} />
           ))}
         </ul>
       </>
@@ -12,12 +20,11 @@ export function MoviesWatched({ watched }) {
   );
 }
 
-
-function ListItem({ movie }) {
+function ListItem({ movie, onDelete }) {
   return (
-    <li key={movie.imdbID}>
-      <img src={movie.Poster} alt={`${movie.Title} poster`} />
-      <h3>{movie.Title}</h3>
+    <li key={movie.imdbId}>
+      <img src={movie.poster} alt={`${movie.title} poster`} />
+      <h3>{movie.title}</h3>
       <div>
         <p>
           <span>⭐️</span>
@@ -31,6 +38,9 @@ function ListItem({ movie }) {
           <span>⏳</span>
           <span>{movie.runtime} min</span>
         </p>
+        <button className="btn-delete" onClick={() => onDelete(movie.imdbID)}>
+          <span>x</span>
+        </button>
       </div>
     </li>
   );

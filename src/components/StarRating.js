@@ -50,7 +50,7 @@ export default function StarRating({
 
 function Star({ onRate, full, onHoverIn, onHoverOut, color, size }) {
   const starStyle = {
-    width: "48px",
+    width: size,
     display: "block",
     cursor: "pointer",
   };

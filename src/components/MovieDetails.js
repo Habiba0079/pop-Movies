@@ -62,7 +62,13 @@ export default function MovieDetails({
     setIsLoading(false);
   }, [selectedId]); // This effect runs when selectedId changes
 
+  useEffect(() => {
+    if (title) document.title = `Movie | ${title}`;
 
+    return () => {
+      document.title = "usePopcorn";
+    };
+  }, [title]);
 
   return (
     <div className="details">

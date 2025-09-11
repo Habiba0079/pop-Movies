@@ -55,7 +55,7 @@ export default function MovieDetails({
         `http://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`
       );
       const data = await res.json();
-      console.log(data);
+      //console.log(data);
       setMovie(data);
       setIsLoading(false);
     }
@@ -69,6 +69,22 @@ export default function MovieDetails({
       document.title = "usePopcorn";
     };
   }, [title]);
+
+  useEffect(() => {
+    document.addEventListener("keydown", (e) => {
+      if (e.code === "Escape") {
+        onCloseMovie();
+        console.log("closing");
+      }
+    });
+    return () => {
+      document.removeEventListener("keydown", (e) => {
+        if (e.code === "Escape") {
+          onCloseMovie();
+        }
+      });
+    };
+  }, [onCloseMovie]);
 
   return (
     <div className="details">

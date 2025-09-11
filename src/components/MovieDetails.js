@@ -57,9 +57,9 @@ export default function MovieDetails({
       const data = await res.json();
       console.log(data);
       setMovie(data);
+      setIsLoading(false);
     }
     fetchMovieDetails();
-    setIsLoading(false);
   }, [selectedId]); // This effect runs when selectedId changes
 
   useEffect(() => {

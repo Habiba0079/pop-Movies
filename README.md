@@ -56,7 +56,3 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 4. **Track**: Add movies to your watched list
 5. **Analyze**: View your watching statistics and preferences
 
-
----
-
-Made with ❤️ using [OMDb API](http://www.omdbapi.com/)

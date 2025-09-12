@@ -4,7 +4,7 @@ A modern React application for movie enthusiasts to search, discover, and track 
 
 ## 🎥 Demo
 
-![PopMovies Demo](../assests/PopMovies Demo (2).gif)
+![PopMovies Demo](https://github.com/Habiba0079/pop-Movies/blob/main/assests/PopMovies%20Demo%20(2).gif)
 
 ## ✨ Features
 
@@ -12,7 +12,7 @@ A modern React application for movie enthusiasts to search, discover, and track 
 - **Movie Details**: View comprehensive information including plot, cast, director, and IMDb ratings
 - **Personal Ratings**: Rate movies with an interactive star rating system
 - **Watched List**: Keep track of movies you've watched with your personal ratings
-- **Statistics**: View your watching statistics including average ratings and total runtime
+- **Statistics**: View your watching statistics, including average ratings and total runtime
 
 ## 🛠️ Tech Stack
 
@@ -37,7 +37,7 @@ A modern React application for movie enthusiasts to search, discover, and track 
 3. **Get your OMDb API key**
    - Visit [OMDb API](http://www.omdbapi.com/apikey.aspx) and get your free API key
    - Replace `KEY` in `src/App.js` with your API key:
-   ```javascript
+   ```JavaScript
    const KEY = "your_api_key_here";
    ```
 

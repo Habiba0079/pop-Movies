@@ -4,7 +4,7 @@ A modern React application for movie enthusiasts to search, discover, and track 
 
 ## 🎥 Demo
 
-![PopMovies Demo](./assests/PopMovies Demo (2).gif)
+![PopMovies Demo](../assests/PopMovies Demo (2).gif)
 
 ## ✨ Features
 

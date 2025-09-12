@@ -66,7 +66,7 @@ export default function MovieDetails({
     if (title) document.title = `Movie | ${title}`;
 
     return () => {
-      document.title = "usePopcorn";
+      document.title = "PopMovies";
     };
   }, [title]);
 

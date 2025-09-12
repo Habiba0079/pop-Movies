@@ -40,7 +40,7 @@ function ListItem({ movie, onDelete }) {
           <span>⏳</span>
           <span>{movie.runtime.toFixed(2)} min</span>
         </p>
-        <button className="btn-delete" onClick={() => onDelete(movie.imdbID)}>
+        <button className="btn-delete" onClick={() => onDelete(movie.imdbId)}>
           X
         </button>
       </div>

@@ -25,7 +25,7 @@ export default function App() {
     setWatched((watched) => [...watched, movie]);
   }
   function onDeleteMovie(id) {
-    const filtered = watched.filter((m) => m.imdbID !== id);
+    const filtered = watched.filter((movie) => movie.imdbId !== id);
     setWatched(filtered);
   }
 

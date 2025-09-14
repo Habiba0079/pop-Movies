@@ -3,17 +3,16 @@ import { Nav, Logo, Search, NumOfResults } from "./components/Nav";
 import MoviesBox from "./components/moviesBox";
 import { MoviesWatched, Summary } from "./components/moviesWatched";
 import MovieDetails from "./components/MovieDetails";
+import { useMovies } from "./useMovies";
 
-const KEY = "7035c60c";
+//const KEY = "7035c60c";
 export default function App() {
-  const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState("");
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(null);
 
   // const tempQuery = "batman";
+  const { movies, isLoading, error } = useMovies(query, onCloseMovie);
 
   function handleSelectMovie(id) {
     setSelectedId(selectedId === id ? null : id);
@@ -28,49 +27,6 @@ export default function App() {
     const filtered = watched.filter((movie) => movie.imdbId !== id);
     setWatched(filtered);
   }
-
-  useEffect(() => {
-    const controller = new AbortController();
-
-    async function getMovies() {
-      try {
-        setIsLoading(true);
-        setError("");
-        const res = await fetch(
-          `http://www.omdbapi.com/?apikey=${KEY}&s=${query}`,
-          { signal: controller.signal }
-        );
-
-        if (!res.ok)
-          throw new Error("Something went wrong with fetching movies");
-
-        const data = await res.json();
-        if (data.Response === "False") throw new Error("Movie not found");
-
-        setMovies(data.Search);
-        setError("");
-        //console.log(data.Search);
-      } catch (err) {
-        if (err.name !== "AbortError") {
-          setError(err.message);
-          console.error(err.message);
-        }
-      } finally {
-        setIsLoading(false);
-      }
-    }
-    if (query.length < 3) {
-      setMovies([]);
-      setError("");
-      return;
-    }
-    onCloseMovie();
-    getMovies();
-
-    return () => {
-      controller.abort();
-    };
-  }, [query]);
 
   return (
     <>

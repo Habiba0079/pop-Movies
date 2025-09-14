@@ -1,18 +1,17 @@
-import { use, useEffect, useState } from "react";
+import { useState } from "react";
 import { Nav, Logo, Search, NumOfResults } from "./components/Nav";
 import MoviesBox from "./components/moviesBox";
 import { MoviesWatched, Summary } from "./components/moviesWatched";
 import MovieDetails from "./components/MovieDetails";
 import { useMovies } from "./useMovies";
+import { useLocalStorage } from "./useLocalStorge";
 
 //const KEY = "7035c60c";
 export default function App() {
-  const [watched, setWatched] = useState([]);
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(null);
-
-  // const tempQuery = "batman";
-  const { movies, isLoading, error } = useMovies(query, onCloseMovie);
+  const { movies, isLoading, error } = useMovies(query);
+  const [watched, setWatched] = useLocalStorage([], "watched");
 
   function handleSelectMovie(id) {
     setSelectedId(selectedId === id ? null : id);

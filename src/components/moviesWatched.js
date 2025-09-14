@@ -30,15 +30,15 @@ function ListItem({ movie, onDelete }) {
       <div>
         <p>
           <span>⭐️</span>
-          <span>{movie.imdbRating.toFixed(2)}</span>
+          <span>{movie.imdbRating?.toFixed(2)}</span>
         </p>
         <p>
           <span>🌟</span>
-          <span>{movie.userRating.toFixed(2)}</span>
+          <span>{movie.userRating?.toFixed(2)}</span>
         </p>
         <p>
           <span>⏳</span>
-          <span>{movie.runtime.toFixed(2)} min</span>
+          <span>{movie.runtime?.toFixed(2)} min</span>
         </p>
         <button className="btn-delete" onClick={() => onDelete(movie.imdbId)}>
           X
@@ -52,9 +52,9 @@ export function Summary({ watched }) {
   const average = (arr) =>
     arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
-  const avgImdbRating = average(watched.map((movie) => movie.imdbRating)).toFixed(2);
-  const avgUserRating = average(watched.map((movie) => movie.userRating)).toFixed(2);
-  const avgRuntime = average(watched.map((movie) => movie.runtime)).toFixed(2);
+  const avgImdbRating = average(watched.map((movie) => movie.imdbRating))?.toFixed(2);
+  const avgUserRating = average(watched.map((movie) => movie.userRating))?.toFixed(2);
+  const avgRuntime = average(watched.map((movie) => movie.runtime))?.toFixed(2);
 
   return (
     <div className="summary">

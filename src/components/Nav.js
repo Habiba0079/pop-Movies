@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { useKey } from "../useKey";
 
 export function Nav({ children }) {
   return <nav className="nav-bar">{children}</nav>;
@@ -15,17 +16,15 @@ export function Logo() {
 
 export function Search({ query, setQuery }) {
   const inputEl = useRef(null);
-  useEffect(() => {
-    function callBack(e) {
+
+  useKey(
+    "Enter",
+    function () {
       if (inputEl.current === document.activeElement) return;
-      if (e.key === "Enter") {
-        inputEl.current.focus();
-        setQuery("");
-      }
+      inputEl.current.focus();
+      setQuery("");
     }
-    document.addEventListener("keydown", callBack);
-    return () => document.addEventListener("keydown", callBack);
-  }, [setQuery]);
+  );
 
   return (
     <input

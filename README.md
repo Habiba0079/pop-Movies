@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# 🎬 PopMovies
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern React application for movie enthusiasts to search, discover, and track their favorite films.
 
-## Available Scripts
+## 🎥 Demo
 
-In the project directory, you can run:
+![PopMovies Demo](https://github.com/Habiba0079/pop-Movies/blob/main/assests/PopMovies%20Demo%20(2).gif)
 
-### `npm start`
+## ✨ Features
 
-Runs the app in the development mode.\
+- **Movie Search**: Search for movies using the OMDb API
+- **Movie Details**: View comprehensive information including plot, cast, director, and IMDb ratings
+- **Personal Ratings**: Rate movies with an interactive star rating system
+- **Watched List**: Keep track of movies you've watched with your personal ratings
+- **Statistics**: View your watching statistics, including average ratings and total runtime
+
+## 🛠️ Tech Stack
+
+- **React 18** - Frontend framework
+- **OMDb API** - Movie database and information source
+- **CSS3** - Custom styling with modern design
+- **JavaScript ES6+** - Core functionality
+
+## 🚀 Quick Start
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/popmovies.git
+   cd popmovies
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Get your OMDb API key**
+   - Visit [OMDb API](http://www.omdbapi.com/apikey.aspx) and get your free API key
+   - Replace `KEY` in `src/App.js` with your API key:
+   ```JavaScript
+   const KEY = "your_api_key_here";
+   ```
+
+4. **Start the app**
+   ```bash
+   npm start
+   ```
+
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🎯 How to Use
 
-### `npm test`
+1. **Search**: Type movie names in the search bar
+2. **Explore**: Click on movies to see detailed information
+3. **Rate**: Give your personal rating using the star system
+4. **Track**: Add movies to your watched list
+5. **Analyze**: View your watching statistics and preferences
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

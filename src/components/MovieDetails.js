@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import StarRating from "./StarRating";
 import { Loading } from "../App";
 
@@ -13,6 +13,13 @@ export default function MovieDetails({
   const [movie, setMovie] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [userRating, setUserRating] = useState("");
+  const countRef =  useRef(0);
+
+  // Increment countRef on each userRating change, but not on initial render
+  useEffect(() => {
+    if (userRating) countRef.current++;
+  }, [userRating]);
+
   const movieIsWatched = watched.some((m) => m.imdbId === selectedId);
 
   // Get the existing rating if movie is already watched
@@ -41,6 +48,7 @@ export default function MovieDetails({
       imdbRating: Number(imdbRating),
       runtime: Number(runtime.split(" ").at(0)),
       userRating: Number(userRating),
+      countRatingDecisions: countRef.current,
     };
     handleWatchMovie(newWatchedMovie);
   }

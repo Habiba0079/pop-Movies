@@ -32,6 +32,7 @@ export default function MovieDetails({
     Poster: poster,
     Plot: plot,
     Runtime: runtime,
+    // eslint-disable-next-line no-useless-rename
     imdbRating: imdbRating,
     Released: released,
     Director: director,
